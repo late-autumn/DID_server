@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+
+
+<head>
+
+    <title></title>
+
+</head>
+
+<body>
+<h1>CodeStates 관리자 관리</h1>
+<form method=post>
+<table  border="1" >
+<tr>
+<td><a href="/admin/insert">관리자 생성</a> <!-- 자료 입력으로 이동 ()--></td>
+<td><a href="/admin/search">관리자 찾기</a> <!-- 자료 입력으로 이동 ()--></td>
+<td><a href="/user/list">수강생 리스트 화면 가기</a> <!-- 자료 입력으로 이동 ()--></td>
+<td><a href="/admin">로그 아웃</a> <!-- 자료 입력으로 이동 ()--></td>
+<!-- <td><input type="submit" value="로그아웃" /></td> -->
+</tr>
+</table>
+
+
+
+
+</form>
+<table width="100%" border="1">
+<caption><h2>관리자 목록</h2></caption>
+<tr>
+<th>수정</th>
+<th>삭제</th>
+<th>관리자 ID</th>
+<th>비밀번호</th>
+<th>관리자 이름</th>
+<th>관리자 등급</th>
+</tr>
+<% data.forEach(function(item,index){ %>  <!-- 스크립트 언어-->
+<tr>
+ <td><a href="/admin/edit/<%=item.ADMIN_ID %>">edit</a></td>
+<td><a href="/admin/delete/<%=item.ADMIN_ID %>">delete</a></td> 
+<td><%= item.ADMIN_ID %></td>  <!-- 값 추출-->
+<td><%= item.ADMIN_PASSWORD %></td>
+<td><%= item.ADMIN_NAME %></td>
+<td><%= item.ADMIN_GRADE %></td>
+
+</tr>
+<%}); %>
+</table>
+
+
+</body>
+
+</html>
+

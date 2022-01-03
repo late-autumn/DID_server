@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+
+<html  >
+
+<head>
+
+    <title></title>
+
+</head>
+
+<body>
+<h1>관리자 수정</h1>
+<table  border="1" >
+<tr>
+<td><a href="/admin/list">관리자목록</a> <!-- 자료 입력으로 이동 ()--></td>
+<td><a href="/admin/insert">관리자생성</a> <!-- 자료 입력으로 이동 ()--></td>
+</tr>
+</table>
+<form method="post">
+<fieldset>
+<table border=1>
+ 
+<tr>
+    <td><label>관리자 비밀번호</label></td>
+    <td><input type="text" name="ADMIN_PASSWORD" value= "<% data.ADMIN_PASSWORD %>"/></td>
+</tr>
+<tr>
+    <td><label>관리자 이름</label></td>
+    <td><input type="text" name="ADMIN_NAME" value= "<% data.ADMIN_NAME %>"/></td>
+</tr>
+<tr>
+    <td><label>관리자 등급</label></td>
+    <td><input type="text" name="ADMIN_GRADE" value= "<% data.ADMIN_GRADE %>"/></td>
+</tr>
+</table>
+<input type="submit" value="수정" />
+<table width="100%" border="1">
+<tr>
+<th>edit</th>
+<th>delete</th>
+<th>관리자 ID</th>
+<th>관리자 비밀번호</th>
+<th>관리자 이름</th>
+<th>관리자 등급</th>
+
+</tr>
+<% data.forEach(function(item,index){ %>  <!-- 스크립트 언어-->
+<tr>
+<td><a href="/admin/edit/<%=item.ADMIN_ID %>">edit</a></td>
+<td><a href="/admin/delete/<%=item.ADMIN_ID %>">delete</a></td>
+<td><%= item.ADMIN_ID %></td>  <!-- 값 추출-->
+<td><%= item.ADMIN_PASSWORD %></td>
+<td><%= item.ADMIN_NAME %></td>
+<td><%= item.ADMIN_GRADE %></td>
+
+</tr>
+<%}); %>
+</table>
+</fieldset>
+</form>
+
+
+</body>
+
+</html>
+

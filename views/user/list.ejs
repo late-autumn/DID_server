@@ -1,0 +1,65 @@
+﻿<!DOCTYPE>
+
+<html  >
+
+<head>
+
+    <title></title>
+
+</head>
+
+<body>
+<h1>CodeStates 회원 관리</h1>
+<form method=post>
+<table  border="1" >
+<tr>
+<td><a href="/user/insert">회원생성</a> <!-- 자료 입력으로 이동 ()--></td>
+<td><a href="/user/search">회원찾기</a> <!-- 자료 입력으로 이동 ()--></td>
+<td><a href="/admin">로그 아웃</a> <!-- 자료 입력으로 이동 ()--></td>
+<!-- <td><input type="submit" value="로그아웃" /></td> -->
+</tr>
+</table>
+
+
+
+
+</form>
+<table width="100%" border="1">
+<caption><h2>회원 목록</h2></caption>
+<tr>
+<th>수정</th>
+<th>삭제</th>
+<th>회원ID</th>
+<th>비밀번호</th>
+<th>회원이름</th>
+<th>회원나이</th>
+<th>회원성별</th>
+<th>회원이메일</th>
+<th>회원휴대번호</th>
+<th>회원수강프로그램</th>
+<th>회원_DID_발급번호</th>
+<th>DID 발급</th>
+</tr>
+<% data.forEach(function(item,index){ %>  <!-- 스크립트 언어-->
+<tr>
+ <td><a href="/user/edit/<%=item.USER_ID %>">edit</a></td>
+<td><a href="/user/delete/<%=item.USER_ID %>">delete</a></td> 
+<td><%= item.USER_ID %></td>  <!-- 값 추출-->
+<td><%= item.USER_PASSWORD %></td>
+<td><%= item.USER_NAME %></td>
+<td><%= item.USER_AGE %></td>
+<td><%= item.USER_GENDER %></td>
+<td><%= item.USER_EMAIL %></td>
+<td><%= item.USER_PHONE %></td>
+<td><%= item.USER_PROGRAM %></td>
+<td><%= item.USER_DID %></td>
+<td><a href="/user/did/<%=item.USER_ID %>">발급</a></td> 
+</tr>
+<%}); %>
+</table>
+
+
+</body>
+
+</html>
+
